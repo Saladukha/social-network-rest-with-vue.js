@@ -1,9 +1,11 @@
 import Vue from 'vue'
+import vuetify from "./plagins/vuetify"
+import Vuetify from "vuetify"
+import '@babel/polyfill'
 import 'api/resource'
 import App from 'pages/App.vue'
-import {connect} from "./util/ws";
-import vuetify from "./plagins/vuetify";
-import Vuetify from "vuetify";
+import store from "./store/store";
+import {connect} from "./util/ws"
 
 if (frontendData.profile) {
     connect()
@@ -14,5 +16,6 @@ Vue.use(Vuetify)
 new Vue({
     el: '#app',
     vuetify,
+    store,
     render: a => a(App)
 });
